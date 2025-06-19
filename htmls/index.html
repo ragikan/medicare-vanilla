@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDiCARE Pathology</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Topbar -->
+  <div class="topbar">
+    <div class="logo-container">
+      <img src="../assets/logo.png" alt="MEDiCARE Logo" class="logo-img">
+      <h1 class="logo-text">MED<span class="red-i">i</span>CARE</h1>
+    </div>
+    <a href="../htmls/admin-home.html" class="admin-login">Admin Login</a>
+  </div>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+  <div class="nav-content">
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Book a Test</a></li>
+      <li><a href="#">Blogs</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <a href="#" class="book-btn">Book a Test</a>
+  </div>
+</nav>
+
+<div id="main-content"></div>
+<div id="about-content"></div>
+
+<div class="book-btn-wrapper">
+  <a href="../htmls/book-test.html" class="book-test-btn"> Book a Test</a>
+</div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script src="../js/index.js"></script>
+</body>
+</html>

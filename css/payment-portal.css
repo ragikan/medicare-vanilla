@@ -1,0 +1,72 @@
+.payment-form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.payment-form-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #1B5E20;
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  background: #1B5E20;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #2E7D32;
+}
+
+.payment-options {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.payment-options button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+}
+
+#pay-online-btn {
+  background-color: #388e3c;
+}
+
+#pay-later-btn {
+  background-color: #f57c00;
+}

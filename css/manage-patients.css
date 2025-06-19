@@ -1,0 +1,137 @@
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table thead {
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 18px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f0f8ff;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.styled-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#patients-table {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+
+#patient-details-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-width: 90%;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+}
+
+#patient-details-card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+#patient-details-card button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#patient-details-card .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+#patient-details-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-width: 90%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none;
+}
+
+#patient-details-card .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+.styled-table tbody tr.status-accepted td {
+  background-color: #e3fce5 !important;
+}
+
+.styled-table tbody tr.status-cancelled td {
+  background-color: #ffe4e4 !important;
+}

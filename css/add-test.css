@@ -1,0 +1,99 @@
+ body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f3f9f8, #e0f7f5);
+      padding: 50px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .form-section {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .preview-section {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .input-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      color: #00695c;
+      margin-bottom: 8px;
+    }
+
+    input {
+      padding: 14px;
+      font-size: 15px;
+      border: 2px solid #b2dfdb;
+      border-radius: 10px;
+    }
+
+    .submit-btn {
+      padding: 16px;
+      font-size: 17px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      background: linear-gradient(to right, #26c6da, #00bfa5);
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    /* Preview Card Styling */
+    .test-card {
+      width: 90%;
+      max-width: 350px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      transition: all 0.3s;
+    }
+
+    .test-card h3 {
+      margin-top: 0;
+      color: #004d40;
+    }
+
+    .test-card p {
+      margin: 4px 0;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .test-price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00bfa5;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .preview-section {
+        order: -1;
+        margin-bottom: 30px;
+      }
+    }
+  

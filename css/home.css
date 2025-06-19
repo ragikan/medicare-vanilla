@@ -1,0 +1,203 @@
+/* Wrapper */
+.hero-wrapper {
+  padding: 40px 20px 60px 20px;
+  background-color: #FAFAFA;
+  display: flex;
+  justify-content: center;
+}
+
+/* Main Box */
+.hero-box {
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #eaffea, #c6f6c6, #eaffea);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  overflow: hidden;
+  padding: 60px 40px;
+}
+
+/* Content layout */
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Left content */
+.hero-left {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tagline {
+  font-size: 44px;
+  font-weight: 700;
+  color: #145A32;
+  line-height: 1.2;
+}
+
+.tagline-desc {
+  font-size: 18px;
+  color: #333;
+  max-width: 480px;
+}
+
+/* Call to action */
+.read-blogs-btn {
+  background: linear-gradient(135deg, #4CBB17, #34a853);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+  display: inline-block;
+  width: fit-content;
+}
+
+.read-blogs-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(76, 187, 23, 0.2);
+}
+
+/* Founder box */
+.founder-box {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  gap: 16px;
+
+  width: 320px;
+  height: 100px;
+
+
+  margin-top: 8px;
+}
+
+.founder-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.founder-info h4 {
+  margin: 0;
+  color: #4CBB17;
+  font-size: 18px;
+}
+
+.founder-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Right image */
+.hero-right {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.95;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-box {
+    padding: 40px 20px;
+    border-radius: 0;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tagline {
+    font-size: 30px;
+  }
+
+  .tagline-desc {
+    font-size: 15px;
+  }
+
+  .hero-right {
+    text-align: center;
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .hero-image {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    gap: 32px;
+    align-items: center;
+  }
+
+  .hero-left {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .founder-box {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .founder-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .read-blogs-btn {
+    margin-bottom: 16px;
+  }
+
+  .hero-image {
+    width: 100%;
+
+    height: auto;
+  }
+}
+
+/* Hide original image on mobile */
+@media (max-width: 768px) {
+  .hero-right {
+    display: none;
+  }
+
+  /* Inject the same image into hero-left */
+  .hero-left::before {
+    content: '';
+    display: block;
+    background-image: url('../assets/Online Doctor-bro.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    max-width: 400px;
+    height: 180px;
+    margin: -20px auto -10px auto; /* Adds 16px space below image */
+  }
+}
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Portal</title>
+    <link rel="stylesheet" href="../css/payment-portal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+     <form id="booking-form">
+  <!-- Customer Details -->
+  <label>Full Name</label>
+  <input type="text" name="name" required />
+
+  <label>Age</label>
+  <input type="number" name="age" required />
+
+  <label>Phone Number</label>
+  <input type="tel" name="phone" required />
+
+  <!-- Sample Collection Type -->
+  <label>Sample Collection Preference</label>
+  <select id="collection-type" name="collectionType" required>
+    <option value="">--Select an option--</option>
+    <option value="home">Home Collection</option>
+    <option value="lab">Visit Pathology</option>
+  </select>
+
+  <!-- Home Address input -->
+  <div id="home-address-field" style="display: none;">
+    <label>Your Home Address</label>
+    <textarea name="address" rows="3"></textarea>
+  </div>
+
+  <!-- Lab Address info -->
+  <div id="lab-address-note" style="display: none;">
+    <p><strong>Visit us at:</strong> Dr. XYZ Pathology, XYZ Road, Nagpur</p>
+    <p>You’ll receive a text message once your appointment is confirmed.</p>
+  </div>
+
+  <!-- Appointment Date and Time -->
+  <label>Choose Appointment Date</label>
+  <input type="date" name="appointmentDate" required />
+
+  <label>Choose Appointment Time</label>
+  <input type="time" name="appointmentTime" required />
+
+  <!-- Payment Buttons -->
+  <div class="payment-options">
+    <button type="button" id="pay-online-btn">Pay Online</button>
+    <button type="button" id="pay-later-btn">Pay After Test</button>
+  </div>
+</form>
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="../js/payment-portal.js"></script>
+</body>
+</html>

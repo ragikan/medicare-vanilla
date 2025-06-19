@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage-tests</title>
+    <link rel="stylesheet" href="../css/manage-tests.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+     <section class="manage-tests-wrapper">
+    <h2 class="page-title">All Tests</h2>
+    <table id="tests-table">
+      <thead>
+        <tr>
+          <th>Test Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tests-table-body">
+        <!-- Tests will be populated here -->
+      </tbody>
+    </table>
+  </section>
+
+
+
+
+
+
+   <div id="edit-modal" class="modal-overlay">
+  <div class="modal-content">
+    <h3>Edit Test</h3>
+    <form id="edit-test-form">
+      <input type="text" id="edit-test-name" placeholder="Test Name" required />
+      <textarea id="edit-test-desc" placeholder="Description" required></textarea>
+      <input type="number" id="edit-test-price" placeholder="Price (₹)" required />
+      <input type="text" id="edit-test-sample" placeholder="Sample Type" required />
+      <input type="text" id="edit-test-delivery" placeholder="Delivery Time" required />
+
+      <div class="modal-buttons">
+        <button type="submit">Save Changes</button>
+        <button type="button" id="cancel-edit">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <button id="add-test-btn" class="add-test-button"> Add Test</button>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script src="../js/manage-tests.js"></script>
+</body>
+</html>

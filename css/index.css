@@ -1,0 +1,255 @@
+/* RESET + BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0fdf4;
+  color: #222;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rgb(232, 248, 224);
+  padding: 20px 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 12px;
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: 600;
+  color: #4CBB17;
+}
+
+.red-i {
+  color: #FF4B4B;
+}
+
+.admin-login {
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.admin-login:hover {
+  color: #4CBB17;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #F0F0F0;
+  padding: 10px 30px;
+  position: relative;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #4CBB17;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* BOOK BUTTON */
+.book-btn {
+  background: linear-gradient(135deg, #4CBB17, #34a853);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+.book-btn:hover {
+  transform: scale(1.05);
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #4CBB17;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animate to X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .admin-login {
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 99;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .book-btn {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+.book-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* BIG. GORGEOUS. CENTERED. */
+.book-test-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32, #4CAF50);
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+  padding: 18px 36px;
+  border-radius: 16px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  animation: popIn 0.8s ease-out;
+  letter-spacing: 0.5px;
+}
+
+.book-test-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: skewX(-30deg);
+  transition: 0.5s;
+}
+
+.book-test-btn:hover::before {
+  left: 100%;
+}
+
+.book-test-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 35px rgba(76, 175, 80, 0.5);
+}
+
+/* Pop in animation */
+@keyframes popIn {
+  0% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .book-test-btn {
+    font-size: 18px;
+    padding: 16px 28px;
+    width: 90%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="../css/calendar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2>📅 Appointment Calendar</h2>
+
+  <div id="calendar-nav">
+    <label for="month-select">Month:</label>
+    <select id="month-select"></select>
+
+    <label for="year-select">Year:</label>
+    <select id="year-select"></select>
+
+    <button onclick="renderCalendar()">🔍 View</button>
+  </div>
+
+  <div id="calendar-container"></div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="../js/calendar.js"></script>
+</body>
+</html>

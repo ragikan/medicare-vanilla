@@ -1,0 +1,94 @@
+.about-wrapper {
+  padding: 80px 20px;
+  background-color: #F6FFF6;
+  display: flex;
+  justify-content: center;
+}
+
+.about-box {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 90%;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-left {
+  flex: 1 1 400px;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.about-right {
+  flex: 1 1 500px;
+}
+
+.about-title {
+  font-size: 36px;
+  color: #145A32;
+  margin-bottom: 16px;
+}
+
+.about-desc {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.about-points li {
+  list-style: none;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #2E7D32;
+  font-weight: 500;
+}
+
+/* Mobile Styling */
+/* Mobile Styling */
+@media (max-width: 768px) {
+  .about-box {
+    display: block; /* STOP flex entirely on mobile */
+    margin: 0 auto;
+    padding: 20px 10px;
+  }
+
+  .about-left,
+  .about-right {
+    width: 100%;
+    padding: 0; /* remove padding that pushes things */
+    margin: 0;
+  }
+
+  .about-image {
+    display: block;
+    width: 90%;
+    margin: 0 auto 50px auto; /* bottom spacing only */
+    border-radius: 20px;
+  }
+
+  .about-title {
+    font-size: 26px;
+    margin-top: 10px; /* give it a slight top gap from image */
+    margin-bottom: 10px;
+    padding: 0 12px;
+    
+  }
+
+  .about-desc {
+    font-size: 15px;
+    margin-bottom: 16px;
+    padding: 0 10px;
+  }
+
+  .about-points li {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+}
+

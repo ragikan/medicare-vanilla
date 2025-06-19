@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-dashboard</title>
+    <link rel="stylesheet" href="../css/add-test.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+     <div class="form-section">
+    <h2>Add New Test</h2>
+    <form id="add-test-form">
+      <div class="input-field">
+        <label for="test-name">Test Name</label>
+        <input type="text" id="test-name" placeholder="e.g. CBC Test" />
+      </div>
+
+      <div class="input-field">
+        <label for="test-desc">Description</label>
+        <input type="text" id="test-desc" placeholder="e.g. Full blood panel" />
+      </div>
+
+      <div class="input-field">
+        <label for="test-price">Price (₹)</label>
+        <input type="text" id="test-price" placeholder="e.g. 500" />
+      </div>
+
+      <div class="input-field">
+        <label for="test-sample">Sample Type</label>
+        <input type="text" id="test-sample" placeholder="e.g. Blood" />
+      </div>
+
+      <div class="input-field">
+        <label for="test-delivery">Delivery Time</label>
+        <input type="text" id="test-delivery" placeholder="e.g. Same Day" />
+      </div>
+
+      <button type="submit" class="submit-btn">➕ Add Test</button>
+    </form>
+  </div>
+
+  <div class="preview-section">
+    <div class="test-card">
+      <h3 id="preview-name">Test Name</h3>
+      <p id="preview-desc">Test description will appear here...</p>
+      <p><strong>Sample:</strong> <span id="preview-sample">N/A</span></p>
+      <p><strong>Delivery:</strong> <span id="preview-delivery">N/A</span></p>
+      <p class="test-price" id="preview-price">₹0</p>
+    </div>
+  </div>
+
+   
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="../js/add-test.js"></script>
+</body>
+</html>
