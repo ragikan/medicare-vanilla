@@ -8,85 +8,78 @@ const firebaseConfig = {
   appId: "1:595653600625:web:9799959a6142ebed2582d0"
 };
 
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database(); 
-const auth = firebase.auth();
 
-const calendarContainer = document.getElementById("calendar-container");
-  const monthSelect = document.getElementById("month-select");
-  const yearSelect = document.getElementById("year-select");
+  // ✅ Firebase initialization
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database(); 
+  const auth = firebase.auth();
 
-  // 🌸 Populate month dropdown
-  const now = new Date();
-  for (let m = 0; m < 12; m++) {
-    const opt = document.createElement("option");
-    opt.value = m;
-    opt.textContent = new Date(0, m).toLocaleString('default', { month: 'long' });
-    if (m === now.getMonth()) opt.selected = true;
-    monthSelect.appendChild(opt);
-  }
+  document.addEventListener('DOMContentLoaded', function () {
+    const calendarEl = document.getElementById('calendar');
 
-  // 🌸 Populate year dropdown
-  for (let y = now.getFullYear(); y <= now.getFullYear() + 3; y++) {
-    const opt = document.createElement("option");
-    opt.value = y;
-    opt.textContent = y;
-    if (y === now.getFullYear()) opt.selected = true;
-    yearSelect.appendChild(opt);
-  }
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek'
+      },
+      events: [],
+      eventClick: function(info) {
+        alert(`Appointment with ${info.event.title} at ${info.event.start.toLocaleTimeString()}`);
+      }
+    });
 
-  // 💡 Update calendar on dropdown change
-  monthSelect.addEventListener("change", renderCalendar);
-  yearSelect.addEventListener("change", renderCalendar);
+    calendar.render();
 
-  // 🌼 Render calendar
-  async function renderCalendar() {
-    const month = parseInt(monthSelect.value);
-    const year = parseInt(yearSelect.value);
+    // ✅ Fetch appointments from Realtime Database
+    database.ref("customers").once("value")
+      .then(snapshot => {
+        const customers = snapshot.val();
+        const events = [];
 
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    let calendarHTML = `
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Patient(s)</th>
-          </tr>
-        </thead>
-        <tbody>
-    `;
+        for (const customerId in customers) {
+          const data = customers[customerId];
 
-    const snapshot = await get(child(ref(db), 'customers'));
-    const data = snapshot.val() || {};
-    const appointments = {};
+          if (data.appointmentDate && data.appointmentTime) {
+            const fullDateTimeStr = `${data.appointmentDate}T${data.appointmentTime}`;
+            const fullDateTime = new Date(fullDateTimeStr);
 
-    for (const id in data) {
-      const entry = data[id];
-      if (entry.appointmentDate && entry.status === "accepted") {
-        const [yyyy, mm, dd] = entry.appointmentDate.split("-").map(Number);
-        if (yyyy === year && mm === month + 1) {
-          const key = dd;
-          if (!appointments[key]) appointments[key] = [];
-          appointments[key].push(entry.name);
+            if (!isNaN(fullDateTime)) {
+              events.push({
+                title: `${data.name} (${data.status})`,
+                start: fullDateTime,
+                backgroundColor: getStatusColor(data.status),
+                borderColor: '#999',
+                display: 'block'
+              });
+            } else {
+              console.warn("⚠️ Invalid date/time for:", data.name, fullDateTimeStr);
+            }
+          }
+
+          // Debug: show raw status
+          console.log("🔎 Status for", data.name, "is:", `"${data.status}"`);
         }
+
+        calendar.addEventSource(events);
+        console.log("✅ Events loaded into calendar:", events);
+      })
+      .catch(error => {
+        console.error("🔥 Firebase DB fetch error:", error);
+      });
+
+    // 🎨 Color logic based on appointment status
+    function getStatusColor(status = '') {
+      const cleaned = status.trim().toLowerCase();
+
+      switch (cleaned) {
+        case 'cancelled': return '#f87171';   // red ❌
+        case 'accepted':  return '#4ade80';   // green ✅
+        case 'pending':   // fallback if this ever exists
+        case '':          return '#facc15';   // yellow ⚠️ (no status = pending?)
+        default:          return '#cbd5e1';   // gray = unknown
       }
     }
+  });
 
-    for (let d = 1; d <= daysInMonth; d++) {
-      const isTaken = appointments[d];
-      calendarHTML += `
-        <tr>
-          <td>${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}</td>
-          <td class="${isTaken ? 'taken' : 'available'}">${isTaken ? "Booked" : "Available"}</td>
-          <td>${isTaken ? appointments[d].join(", ") : "-"}</td>
-        </tr>
-      `;
-    }
-
-    calendarHTML += `</tbody></table>`;
-    calendarContainer.innerHTML = calendarHTML;
-  }
-
-  // 🟢 Initial render
-  renderCalendar();

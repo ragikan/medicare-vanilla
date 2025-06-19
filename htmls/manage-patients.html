@@ -16,6 +16,7 @@
       <th>Patient Name</th>
       <th>Tests</th>
       <th>Appointment Time</th>
+      <th>Informed?</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -33,6 +34,14 @@
   <button onclick="closeCalendar()" style="float:right; margin:10px;">❌ Close</button>
   <iframe src="calendar.html" style="width:100%; height:90%; border:none;"></iframe>
 </div>
+<div id="inform-popup" style="display:none; position:fixed; top:20%; left:50%; transform:translateX(-50%);
+  background:white; border:1px solid #ccc; box-shadow:0 0 15px rgba(0,0,0,0.3); padding:20px; z-index:10000;">
+  <h3>Inform Patient</h3>
+  <p id="inform-message">Preparing...</p>
+  <div id="inform-options" style="margin-top:15px; display:flex; gap:10px; flex-wrap:wrap;"></div>
+  <button onclick="closeInformPopup()" style="margin-top:15px;">Close</button>
+</div>
+
 
     
 

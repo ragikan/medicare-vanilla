@@ -35,3 +35,16 @@ const auth = firebase.auth();
         document.getElementById('about-content').innerHTML = data;
       });
   });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    fetch('home-blog.html')  // Your home content file
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('home-blog').innerHTML = data;
+
+        const script = document.createElement('script');
+    script.src = '../js/home-blog.js';
+    script.defer = true;
+    document.body.appendChild(script);
+      });
+  });

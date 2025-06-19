@@ -44,6 +44,7 @@ database.ref("customers").once("value")
         <td>${name}</td>
         <td>${tests}</td>
         <td>${appointmentTime}</td>
+        <td class="informed-status">${informed}</td>
         <td><button class="view-btn" data-id="${key}">View Details</button></td>
       `;
 
@@ -179,7 +180,7 @@ async function acceptPatient(id) {
 
   await database.ref(`customers/${id}`).update({ status: "accepted" });
   updateRowStatus(id, "accepted");
-  alert("Appointment accepted ✅");
+  showInformPopup(current, "accepted");
   closeDetailsCard();
 }
 
@@ -210,7 +211,8 @@ async function reschedulePatient(id) {
   }
 
   await database.ref(`customers/${id}`).update({ appointmentTime: newTime });
-  alert("Rescheduled to " + newTime);
+  data.appointmentTime = newTime; // update for the message
+  showInformPopup(data, "rescheduled");
   closeDetailsCard();
 }
 
@@ -229,4 +231,35 @@ function openCalendar() {
 
 function closeCalendar() {
   document.getElementById("calendar-popup").style.display = "none";
+}
+
+function showInformPopup(data, actionType = "accepted") {
+  const popup = document.getElementById("inform-popup");
+  const messageBox = document.getElementById("inform-message");
+  const optionsBox = document.getElementById("inform-options");
+
+  const msg = `Hello ${data.name}, your appointment at Meow Pathology has been ${actionType}.
+Date: ${data.appointmentDate}
+Time: ${data.appointmentTime}.
+Thank you!`;
+
+  messageBox.textContent = `How would you like to inform ${data.name}?`;
+  optionsBox.innerHTML = `
+    <button onclick="alert('Call ${data.phone}')">📞 Call</button>
+    <button onclick="copyToClipboard(\`${msg.replace(/\n/g, "\\n")}\`)">💬 Copy Message</button>
+    <p style="font-size: 0.85rem; margin-top: 10px;">Phone: ${data.phone}</p>
+    <textarea readonly style="width:100%; margin-top:10px; font-size: 0.9rem;" rows="4">${msg}</textarea>
+  `;
+
+  popup.style.display = "block";
+}
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text)
+    .then(() => alert("Message copied!"))
+    .catch(err => alert("Failed to copy message."));
+}
+
+function closeInformPopup() {
+  document.getElementById("inform-popup").style.display = "none";
 }

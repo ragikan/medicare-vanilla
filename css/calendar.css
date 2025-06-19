@@ -1,59 +1,11 @@
-#calendar-container {
-  width: 90%;
-  max-width: 700px;
-  margin: 40px auto;
-  text-align: center;
-}
 
-#calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
-}
+  #calendar {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
 
-.calendar-day {
-  border: 1px solid #ccc;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-.calendar-day.booked {
-  background-color: #ffe0e0;
-}
-
-.calendar-day:hover {
-  background-color: #f0f0f0;
-}
-
-#day-details {
-  background: white;
-  border: 1px solid #ccc;
-  padding: 20px;
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  border-radius: 10px;
-}
-
-body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-    #calendar-nav { margin-bottom: 20px; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
-    td.taken {
-      background-color: #ffe5e5;
-      color: red;
-    }
-    td.available {
-      background-color: #e5ffe5;
-      color: green;
-    }
+  

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Blogs</title>
+    <link rel="stylesheet" href="../css/manage-blogs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="create-blog-container">
+  <h2>📝 Create a New Blog</h2>
+  <form id="create-blog-form">
+    <input type="text" id="blog-title" placeholder="Blog Title" required />
+    <textarea id="blog-summary" placeholder="Short Summary (max 200 chars)" maxlength="200" required></textarea>
+    <textarea id="blog-content" placeholder="Full Blog Content (use basic HTML if needed)" required></textarea>
+    <input type="text" id="blog-image-url" placeholder="Image URL" required />
+    <button type="submit">📤 Publish Blog</button>
+  </form>
+</div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="../js/manage-blogs.js"></script>
+</body>
+</html>

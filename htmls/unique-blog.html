@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs</title>
-    <link rel="stylesheet" href="../css/blogs.css">
+    <title>Blog</title>
+    <link rel="stylesheet" href="../css/unique-blog.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-     <h1 class="heading">🩺 Medicare Wellness Blog</h1>
-  <div id="blog-container" class="blog-grid"></div>
 
-  
+    <h1 id="blog-title">Loading...</h1>
+    <img id="blog-image" src="" alt="Blog Image" style="display: none;" />
+    <p id="blog-summary" class="summary"></p>
+    <p id="blog-content" class="content"></p>
+
+    <a href="blogs.html" style="display:block; margin-top:30px; color:#2563eb;">← Back to Blogs</a>
+
+
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="../js/blogs.js"></script>
+    <script src="../js/unique-blog.js"></script>
 </body>
 </html>
