@@ -28,10 +28,59 @@ collectionType.addEventListener("change", () => {
 });
 
 // 👉 Pay Online (simulate for now)
-payOnlineBtn.addEventListener("click", () => {
-  alert("You chose to pay online. Redirecting to payment gateway...");
-  window.location.href = "thank-you.html"; // TODO: integrate real gateway
+payOnlineBtn.addEventListener("click", async () => {
+  const formData = new FormData(bookingForm);
+
+  const name = formData.get("name")?.trim();
+  const age = formData.get("age")?.trim();
+  const phone = formData.get("phone")?.trim();
+  const collection = formData.get("collectionType");
+  const address = collection === "home" ? formData.get("address")?.trim() : "Will visit pathology";
+  const appointmentDate = formData.get("appointmentDate");
+  const appointmentTime = formData.get("appointmentTime");
+
+  if (!name || !age || !phone || !collection || !appointmentDate || !appointmentTime) {
+    return alert("Please fill in all required fields!");
+  }
+
+  const userCartId = localStorage.getItem("userCartId");
+  if (!userCartId) {
+    return alert("No cart found. Please add tests before booking.");
+  }
+
+  try {
+    const snapshot = await database.ref(`carts/${userCartId}/items`).once("value");
+    const tests = snapshot.val() || {};
+
+    const customerData = {
+      name,
+      age,
+      phone,
+      collectionType: collection,
+      address,
+      appointmentDate,
+      appointmentTime,
+      paymentMethod: "Pay Online",
+      paymentStatus: "paid",  // 🟢 Marked as paid
+      tests,
+      timestamp: new Date().toISOString()
+    };
+
+    const uniqueId = Date.now();
+    await database.ref(`customers/${name}-${uniqueId}`).set(customerData);
+
+    // ♻️ Reset Cart ID
+    localStorage.removeItem("userCartId");
+    const newCartId = `cart_${Date.now()}_${Math.floor(Math.random() * 100000)}`;
+    localStorage.setItem("userCartId", newCartId);
+
+    // 🚀 Redirect to thank you page
+    window.location.href = "thank-you.html";
+  } catch (error) {
+    alert("Error saving booking: " + error.message);
+  }
 });
+
 
 // 👉 Pay Later Handler
 payLaterBtn.addEventListener("click", async () => {

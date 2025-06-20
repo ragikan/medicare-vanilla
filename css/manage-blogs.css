@@ -1,41 +1,38 @@
-.create-blog-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #ffffff;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
 
-.create-blog-container h2 {
-  text-align: center;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
-}
+  .blog-list-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+  }
 
-#create-blog-form {
-  display: grid;
-  gap: 1rem;
-}
+  .blog-card-admin {
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background: #fafafa;
+  }
 
-#create-blog-form input,
-#create-blog-form textarea {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
+  .blog-card-admin h3 {
+    margin: 0;
+    font-size: 18px;
+  }
 
-#create-blog-form button {
-  padding: 1rem;
-  background: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  cursor: pointer;
-}
+  .blog-card-admin p {
+    font-size: 14px;
+    margin: 8px 0;
+  }
 
-#create-blog-form button:hover {
-  background: #2563eb;
-}
+  .admin-blog-buttons {
+    margin-top: 10px;
+  }
+
+  .admin-blog-buttons button {
+    margin-right: 10px;
+    padding: 6px 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+

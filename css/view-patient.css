@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  padding: 30px;
+}
+
+.patient-card {
+  background: #fffdf7;
+  border: 2px solid #eee;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+#test-list {
+  margin-top: 10px;
+  padding-left: 20px;
+  line-height: 1.6;
+  list-style: square;
+}
