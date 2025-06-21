@@ -83,9 +83,52 @@ tr.read {
 
 
 
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status-badge::first-letter {
+  text-transform: uppercase;
+}
 
 
 
+
+
+
+
+.status-accepted {
+  background-color: #d4f8d4 !important; /* light green */
+}
+
+.status-rejected {
+  background-color: #f8d4d4 !important; /* light red */
+}
+
+.status-rescheduled {
+  background-color: #fff5cc !important; /* light yellow */
+}
+
+
+
+
+
+
+
+.mark-paid-btn {
+  padding: 4px 8px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.mark-paid-btn:hover {
+  background-color: darkorange;
+}
 
 
 
