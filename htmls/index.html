@@ -4,38 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEDiCARE Pathology</title>
+    <link rel="stylesheet" href="../styles/output.css">
     <link rel="stylesheet" href="../css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     
     <!-- Topbar -->
-  <div class="topbar">
-    <div class="logo-container">
-      <img src="../assets/logo.png" alt="MEDiCARE Logo" class="logo-img">
-      <h1 class="logo-text">MED<span class="red-i">i</span>CARE</h1>
+   <!-- Gradient Accent Line -->
+<div class="h-1 w-full bg-gradient-to-r from-[#c6f6c6] via-[#eaffea] to-[#c6f6c6]"></div>
+
+<!-- Fancy Topbar -->
+ <div class="topbar bg-[#eaffea] px-6 py-3 flex items-center justify-between shadow-md">
+  <div class="logo-container flex items-center gap-3">
+    <img src="../assets/logo.png" alt="MEDiCARE Logo" class="logo-img w-10 h-10 object-contain" />
+    <h1 class="logo-text text-2xl font-bold text-gray-800">
+      MED<span class="red-i text-red-500">i</span>CARE
+    </h1>
+  </div>
+  <a href="../htmls/admin-home.html" class="admin-login text-sm bg-[#c6f6c6] hover:bg-[#b3eab3] text-gray-700 font-medium px-4 py-2 rounded-md transition duration-200">
+    Admin Login
+  </a>
+</div>
+
+
+
+
+
+
+
+<nav class="navbar bg-[#eaffea] shadow-md px-6 py-4 relative z-50">
+  <div class="nav-content flex items-center justify-between max-w-7xl mx-auto">
+    
+    <!-- Logo / Branding -->
+    
+
+    <!-- Hamburger Icon (Mobile Only) -->
+    <div class="hamburger flex flex-col gap-[6px] cursor-pointer md:hidden" id="hamburger">
+      <span class="w-6 h-0.5 bg-gray-800 rounded transition-all"></span>
+      <span class="w-6 h-0.5 bg-gray-800 rounded transition-all"></span>
+      <span class="w-6 h-0.5 bg-gray-800 rounded transition-all"></span>
     </div>
-    <a href="../htmls/admin-home.html" class="admin-login">Admin Login</a>
+
+    <!-- Nav Links (Desktop) -->
+    <ul class="nav-links hidden md:flex gap-8 items-center text-gray-700 font-medium">
+      <li><a href="../htmls/home.html" class="hover:text-green-600 transition">Home</a></li>
+      <li><a href="../htmls/about-us.html" class="hover:text-green-600 transition">About Us</a></li>
+      <li><a href="../htmls/book-test.html" class="hover:text-green-600 transition">Book a Test</a></li>
+      <li><a href="../htmls/blogs.html" class="hover:text-green-600 transition">Blogs</a></li>
+      <li><a href="#contact-section" class="hover:text-green-600 transition">Contact Us</a></li>
+    </ul>
+
+    <!-- Book Test Button (Desktop) -->
+    <a href="../htmls/book-test.html" class="book-btn hidden md:inline-block bg-[#c6f6c6] hover:bg-[#b3eab3] text-sm font-semibold text-gray-800 px-5 py-2 rounded-full transition-all">
+      Book a Test
+    </a>
   </div>
 
-<!-- NAVIGATION BAR -->
-<nav class="navbar">
-  <div class="nav-content">
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Book a Test</a></li>
-      <li><a href="../htmls/blogs.html">Blogs</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-    <a href="#" class="book-btn">Book a Test</a>
+  <!-- Mobile Nav Menu -->
+  <div id="mobile-menu" class=" md:hidden absolute top-[100%] left-4 right-4 bg-[url('https://www.transparenttextures.com/patterns/marble.png')] bg-[#ffffff]/90 backdrop-blur-md shadow-lg rounded-2xl px-6 py-6 mt-4 flex flex-col gap-5 text-gray-700 font-medium transition-all">
+    <a href="../htmls/home.html" class="block hover:text-green-700 transition">Home</a>
+    <a href="../htmls/about-us.html" class="block hover:text-green-700 transition">About Us</a>
+    <a href="../htmls/book-test.html" class="block hover:text-green-700 transition">Book a Test</a>
+    <a href="../htmls/blogs.html" class="block hover:text-green-700 transition">Blogs</a>
+    <a href="#contact-section" class="block hover:text-green-700 transition">Contact Us</a>
   </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
 
 <div id="main-content"></div>
 <div id="about-content"></div>

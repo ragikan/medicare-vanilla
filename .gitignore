@@ -1,0 +1,11 @@
+# Don't track dependency folders
+node_modules/
+dist/
+build/
+
+# Don't track Tailwind output CSS
+styles/output.css
+
+# System files
+.DS_Store
+.env

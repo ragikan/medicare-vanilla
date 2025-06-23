@@ -12,13 +12,15 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database(); 
 const auth = firebase.auth();
 
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
 
-  hamburger.addEventListener('click', function(){
-    navLinks.classList.toggle('show');
-    hamburger.classList.toggle('active'); 
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
   });
+
+
 
   window.addEventListener('DOMContentLoaded', () => {
     fetch('home.html')  // Your home content file
